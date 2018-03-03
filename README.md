@@ -1,6 +1,6 @@
 # Playing with HUG
 
-Do you know [hug](http://www.hug.rest)? It's an brilliant, tiny (yet powerful) python3 miniframework for rapid creation of REST API-based apps with optional CLI interface (may be used also locally - as a tools:). 
+Do you know [hug](http://www.hug.rest)? It's a brilliant, tiny (yet powerful) python3 miniframework for rapid creation of REST API-based apps with optional CLI interface (may be used also locally - as a tools:). 
 
 This repo contains a results of a "recuitment task" I've completed some time ago that uses *hug* as the "solution engine" and demonstrates most of *hug* features at a glance :)
 
