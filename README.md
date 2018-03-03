@@ -1,6 +1,8 @@
 # Playing with HUG
 
-Do you know [hug](http://www.hug.rest)? It's an brilliant, tiny (yet powerful) python3 miniframework for rapid creation of REST API-based apps. This repo contains a results of a "recuitment task" I've completed some time ago that uses HUG as the "solution engine" and demonstrates most of HUG features at a glance :)
+Do you know [hug](http://www.hug.rest)? It's an brilliant, tiny (yet powerful) python3 miniframework for rapid creation of REST API-based apps with optional CLI interface (may be used also locally - as a tools:). 
+
+This repo contains a results of a "recuitment task" I've completed some time ago that uses *hug* as the "solution engine" and demonstrates most of *hug* features at a glance :)
 
 ## The recruitment task
 
@@ -30,11 +32,11 @@ Pretty easy, hugh? So that's what & how I did... ;)
 
 ## Gathering and analyzing "requirements"
  
-If about the task: we have here a simple "invitation" service, that may be a part of some bigger solution, but IMO is too incomplete and not well specified - i.e. what should happens when few sequent POST /invitation request will be performed? What about "multi-invitees" support? What about "business logic" related to request data validation?
+If about the task: we have here a simple "invitation" service, that may be a part of some bigger solution, but IMO is too incomplete and not well specified - i.e. what should happens when few sequent *POST /invitation* request will be performed? What about "multi-invitees" support? What about "business logic" related to request data validation?
  
 So I've came up with few additional assumptions to make this service more "serious" and more *RESTful* and below is what has been finally designed and implemented:
  
-There is an endpoint /invitation with following supported methods:
+There is an endpoint */invitation* with following supported methods:
 
  * **POST** creates new invitee. Every request will create a new entity (as long as its invitee is unique).
  * **GET** returns a list of all invitees objects but may be parametrized (by query parameter with invitee data)to get only single JSON object with requested invitee data.
@@ -54,9 +56,9 @@ Application has been builden with usage of:
 
 Rationales behind above choices:
 
-My *primary* stack is Django-based (Django / Django REST Framework) but I did not decided to use it for this task for two reasons - it's a big and fully featured solution for *serious businesses* so should be used for that (*right tools for appopriate tasks* approach) and - to be honest - as nobody will pays for time I've spent on this task, I wished to "learn sth new and potentially useful" by the way of doing it ;) I've discovered *hug* "some time ago" and it's approach looked to me so brilliant and cool, I was really curious to check "how it works" with some real-life example. Also during development of this task I've found that *hug* uses *pytest* that looked to me much more "efficient" than classic [unittest]() python's solution, so I decided to use it as well.
+My *primary* stack is Django-based (Django / Django REST Framework) but I did not decided to use it for this task for two reasons - it's a big and fully featured framework for *serious businesses* so should be used for that (*right tools for appopriate tasks* approach) and - to be honest - as nobody will pays for time I've spent on this task, I wished to "learn sth new and potentially useful" by the way of doing it ;) I've discovered *hug* "some time ago" and it's approach looked to me so brilliant and cool, I was really curious to check "how it works" with some real-life example. Also during development of this task I've found that *hug* uses *pytest* that looked to me much more "efficient" than classic [unittest]() python's solution, so I decided to use it as well.
 
-And what can I say - as for "few hours session" with this totally new for me libs, I'm really pleased with the results! *hug* and *pytest* are really.. HUGE :) At least if about developing such a simple "projects" like this tasks and certainly this is the future of python web frameworks (i.e. amazing annotation-based validators, directives, nice routing solution, blazing fast runtime execution & rapid development etc) and testing (i.e. supereasy asserts "without self" and tons of dedcated methods!;), so check them out if you didn't hear about them dudes :)
+And what can I say - as for "few hours session" with this totally new for me libs, I'm really pleased with the results! I found *hug* and *pytest* really.. HUGE :) At least if about developing such a simple "projects" like this tasks and certainly this is the future of python web frameworks (i.e. amazing annotation-based validators, directives, nice routing solution, blazing fast runtime execution & rapid development etc) and testing (i.e. supereasy asserts "without self" and tons of dedicated methods!;), so check them out if you didn't hear about them dudes :)
  
 ## System "Architecture"
 
@@ -72,7 +74,7 @@ The whole app is assembled from such modules:
  * [models.py](https://github.com/krembas/playing-with-hug/blob/master/app/models.py) - Models definitions used by application (to provide persistence layer and abstract data I/O into common interface used by request handlers "views").
  * [api.py](https://github.com/krembas/playing-with-hug/blob/master/app/api.py) - API handlers ("views") definition.
  * [validators.py](https://github.com/krembas/playing-with-hug/blob/master/app/validators.py) - Validators definitions used by request handlers (to ensure data provided by request are proper).
- * [tests](https://github.com/krembas/playing-with-hug/blob/master/app/tests.py) - Tests that ensures that all endpoints work correctly in sense of API and expected behavior. There is a lot of code here, as IMO **tests are more important that implementation** (which if wrong, could be always fixed / refactored and with help of good test it's a piece of cake ;)
+ * [tests.py](https://github.com/krembas/playing-with-hug/blob/master/app/tests.py) - Tests that ensures that all endpoints work correctly in sense of API and expected behavior. There is a lot of code here, as IMO **tests are more important that implementation** (which if wrong, could be always fixed / refactored and with help of good test it's a piece of cake ;)
 
 As *hug* uses doc strings to automatically generate API documentation, thus content of doc strings (i.e. for methods etc) may not contain usually expected information as it was written "for API spec" purposes and vice versa - in some cases the results are little werid, but you know... it's a just "requirement task" so I did not care too much on that aspects ;)
 
