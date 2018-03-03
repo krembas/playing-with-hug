@@ -5,7 +5,7 @@ Do you know [hug](http://www.hug.rest)? It's an brilliant, tiny (yet powerful) p
 ## The recruitment task
 
 So here is a task I was asked to complete during a some company's recruitment process:
-----
+
 >*Write an application in Python to serve two endpoints described below. Selection of libraries and frameworks is up to you. The source directory must have the file run.sh which let you run the application in systems with Unix or blik run.bat for Windows. README.md file should contain a brief description of your approach to the assignment. The application doesn't have to save anything persistently, the answers can be permanently placed in the code.
 >Note: This is not a complete specification. The task is defined vaguely on purpose so that you can show your skills, approach and attitude.*
 
@@ -25,8 +25,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json;charset=utf-8
 [{ "invitee": "John Smith", "email": "john@smith.mx" }]
 ```
-----
-Pretty easy, hugh? So that's what & how I did it... ;)
+
+Pretty easy, hugh? So that's what & how I did... ;)
 
 ## Gathering and analyzing "requirements"
  
